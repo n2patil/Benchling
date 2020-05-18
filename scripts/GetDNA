@@ -52,7 +52,7 @@ function buildAPIcall(){
   
   var domain= sheet.getRange(2,2).getValue();
   
-  var key= sheet.getRange(3,2).getValue();
+  //var key= sheet.getRange(3,2).getValue();
   
   var endpoint= sheet.getRange(4,2).getValue();
   
