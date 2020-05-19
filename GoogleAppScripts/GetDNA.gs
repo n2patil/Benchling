@@ -41,47 +41,59 @@ function handleJsonResponse(data) {
      
      
      sheet.getRange(i + 2, 4).setValue(obj.name);
-     sheet.getRange(i + 2, 5).setValue(obj.bases);
+     
+     //excel has a limit of 5000 characters in a cell
+     sheet.getRange(i + 2, 5).setValue(obj.bases.slice(0,5000));
     //Logger.log(obj.bases);
   }
 }
 
 function buildAPIcall(){
 
+ 
   var sheet= SpreadsheetApp.getActiveSheet();
-  
-  var domain= sheet.getRange(2,2).getValue();
-  
-  //var key= sheet.getRange(3,2).getValue();
-  
-  var endpoint= sheet.getRange(4,2).getValue();
-  
+  var USERNAME = sheet.getRange('B3').getValue();
+  var PASSWORD= '';
+
+  var authHeader = 'Basic ' + Utilities.base64Encode(USERNAME + ':' + PASSWORD);
+   
   var registryid= sheet.getRange(5,2).getValue();
   
   var schemaid= sheet.getRange(6,2).getValue();
+
+  var payload= {
+            'schemaId': schemaid,
+             'registryId':  registryid,
+             
+        }
+        
+  var authHeader = {'Authorization': 'Basic ' + Utilities.base64Encode(USERNAME + ':' + PASSWORD)};
+  var options = {
+    'headers': authHeader,
+    'method': 'get',
+    'ContentType' : "application/json",
+    'params': JSON.stringify(payload),
+    'muteHttpExceptions':false
+  }
   
-  var API_URL= 'https://' + domain + '/api/v2/' + endpoint +'?' + sheet.getRange(5,1).getValue() + registryid + '&' + sheet.getRange(6,1).getValue() + schemaid
-  
-  return API_URL
+  return options
 
 }
 
 function getDNA() {
-  
-  //Call Benchling API DNA Sequences
+ 
   var sheet= SpreadsheetApp.getActiveSheet();
-  var USERNAME = sheet.getRange('B3').getValue();
-  var PASSWORD= '';
-  
-  var API_URL= buildAPIcall()
-  
-  Logger.log(API_URL)
+  var domain= sheet.getRange(2,2).getValue();
+  var endpoint= sheet.getRange(4,2).getValue();
 
-  var authHeader = 'Basic ' + Utilities.base64Encode(USERNAME + ':' + PASSWORD);
-  var options = {
-    headers: {Authorization: authHeader}
-  }
+  var API_URL= 'https://' + domain + '/api/v2/' + endpoint
+   
+  var options= buildAPIcall()
+  
+  Logger.log(options)
+  
   // Include 'options' object in every request
+  //Call Benchling API DNA Sequences
   var response = UrlFetchApp.fetch(API_URL, options);
 
   //Logger.log(response.getContentText());
