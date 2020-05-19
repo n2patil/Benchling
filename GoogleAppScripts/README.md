@@ -21,3 +21,50 @@ Pre-filled SampleSheet [Link](https://docs.google.com/spreadsheets/d/1rj32WeU18k
 - Set up a form and link to this spreadsheet to add rows to this sheet. 
 - Lastly add a Google App Trigger to this sheet to run the CreateRequest function OnFormSubmit! 
 
+Request Schema JSON Configuration in Benchling Request Settings
+```
+{
+    "fields": [
+        {
+            "isMulti": false,
+            "type": "date",
+            "displayName": "Date of Request",
+            "name": "date_of_request",
+            "isRequired": true
+        },
+        {
+            "isMulti": false,
+            "type": "text",
+            "displayName": "Deliver Fluorescent Protein To",
+            "name": "deliver_fluorescent_protein_to",
+            "isRequired": false
+        },
+        {
+            "isMulti": false,
+            "type": "float",
+            "displayName": "Amount Needed (mg)",
+            "name": "amount_needed_mg",
+            "isRequired": false
+        },
+        {
+            "isMulti": false,
+            "type": "text",
+            "displayName": "Request Comments",
+            "name": "request_comments",
+            "isRequired": false
+        }
+    ],
+    "idPrefix": "Req",
+    "taskSchemas": [],
+    "samplesSchema": [
+        {
+            "isMulti": false,
+            "isRequired": false,
+            "schemaId": "SAMPLE_ENTITY_SCHEMA_ID",
+            "type": "entity_link",
+            "name": "Fluorescent Protein"
+        }
+    ]
+}
+```
+
