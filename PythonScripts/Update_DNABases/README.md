@@ -1,5 +1,5 @@
 
-# **Python Script Update DNA Sequences via API**
+# **Update DNA Sequences via API**
 
 ***Disclaimer***: Script will wipe all annotations and translations from updated sequences
 
@@ -7,6 +7,7 @@
 
     * ie. If bases are only added to the beginning or end of the sequence and could be easily readjusted
 
+Currently there is no bulk update endpoint so will need to make a call per sequence in file to update bases.
 
 Script assumes input CSV file with format below (CSV Header Names must be exact match & case sensitive) 
 
