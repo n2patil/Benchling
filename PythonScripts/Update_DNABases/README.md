@@ -8,7 +8,9 @@
     * ie. If bases are only added to the beginning or end of the sequence and could be easily readjusted
 
 
-Script assumes input CSV file with format below (Headers are case sensitive) 
+Script assumes input CSV file with format below (CSV Header Names must be exact match & case sensitive) 
+
+![image](https://user-images.githubusercontent.com/12637629/86318169-19538e80-bbe6-11ea-9c9a-5c4d787428c1.png)
 
 
 **_Steps To Run Script:_**
