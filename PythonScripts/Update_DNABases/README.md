@@ -36,6 +36,10 @@ Script assumes input CSV file with format below (CSV Header Names must be exact 
     ```python3 pipenv run python3 updateseqs.py --domain company.benchling.com --apikey XXXXXXXXXXXXX updatebases_example.csv ```
 
      _Example Output in Terminal:_
+     
+     
+     ![image](https://user-images.githubusercontent.com/12637629/86318848-eca07680-bbe7-11ea-994a-49e31438c9c9.png)
+     
 
 6. _Remove Virtual Env & Delete pipfiles:_
 
