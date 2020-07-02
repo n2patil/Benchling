@@ -50,3 +50,8 @@ Script assumes input CSV file with format below (CSV Header Names must be exact 
 
     ```rm Pipfile.lock```
 
+
+### You will need to go back to the Benchling UI to refresh any Part links for each updated sequence > Autofill Parts 
+
+
+
