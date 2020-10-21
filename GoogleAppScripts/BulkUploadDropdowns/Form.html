@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <!-- Document Head -->
+  <head>
+    <base target="_top">
+    <!-- Add the Google Apps Script CSS file -->
+    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+      
+    <!-- Add Styling to your sidebar -->	
+    <!-- You can also refer to an external stylesheet - as with the link above or other css frameworks like Bootstrap or W3School's CSS -->
+    <!-- Try not to have styling elements within your html page and rather make of use external stylesheets -->
+      <style>
+        body {
+          padding-left: 5px;
+        }
+        a:active {
+          color: white;
+          text-decoration: none:
+       }
+       a:hover {
+          color: white;
+          text-decoration: none:
+       }
+       a:link {
+          color: white;
+          text-decoration: none:
+       }
+       a:visited {
+          color: white;
+          text-decoration: none:
+       }
+       div {
+          padding: 10px;
+       }
+    </style>
+    
+    
+  </head>
+  
+  <!-- Document Body -->
+  <body>
+    
+    <!-- class="action" is a class contained within the Google Apps Script CSS file that was added in the <head> section -->
+    <!-- It adds default styling to our buttons - blue bakcground, with white text -->
+   
+    <div></div>
+    
+     Please fill in the form below.<br><br>
+    <form id="myForm" onsubmit="event.preventDefault(); google.script.run.processForm(this);">
+      Benchling URL (ie. <companyname>.benchling.com ) :
+      <input type="text" name="benchlingurl"><br><br>
+      API Key:
+      <input type="text" name="apikey"><br><br>
+      Registry ID:
+      <input type="text" name="registryid"><br><br>
+      
+      <input type="submit" class="action" value="Submit">
+      <input type="button" class="action" value="Cancel" onclick="google.script.host.close()" />
+    </form><br>
+  </body>
+
+</html>
